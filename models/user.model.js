@@ -10,9 +10,6 @@ const userSchema = new Schema(
         last_name:{type: String},
         email_address:{type: String},
         physical_address:{type: String},
-        role:{type: String, required: true},
-        subscription_start_date:{type: Date},
-        subscription_end_date:{type: Date}
     },
     {
     timestamps: true,
