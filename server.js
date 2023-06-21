@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true});
+mongoose.connect(process.env.ATLAS_URI, {dbName: "SummonersChess", useNewUrlParser: true});
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database connection established!");
