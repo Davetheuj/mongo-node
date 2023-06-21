@@ -16,7 +16,13 @@ router.route('/:id').get((req,res) => {
 //add new user
 router.route('/add').post((req,res) => {
     console.log(req);
+    console.log("\n\n");
     console.log(req.body);
+    console.log("\n\n");
+    console.log(req.body.username);
+    console.log("\n\n");
+    console.log(req.body.password);
+
     const username = req.body.username;
     const password = req.body.password;
     const email_address = req.body.email_address;
