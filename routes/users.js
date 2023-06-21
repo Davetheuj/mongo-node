@@ -15,6 +15,8 @@ router.route('/:id').get((req,res) => {
 
 //add new user
 router.route('/add').post((req,res) => {
+    console.log(req);
+    console.log(req.body);
     const username = req.body.username;
     const password = req.body.password;
     const email_address = req.body.email_address;
