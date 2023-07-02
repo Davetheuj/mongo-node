@@ -41,12 +41,13 @@ router.route('/delete').delete((req,res) =>{
   User.findOneAndDelete({username: req.body.username, password: req.body.password}).then(()=> 
     res.json('User has been deleted')).catch(err => res.status(401).json('Error: ' + err));
     
+    
   
 });
 //authenticate user
 router.route('/login').get((req,res) =>{
 
-    User.findOne({username: req.body.username, password: req.body.password}).then(()=> 
+    User.find({username: req.body.username, password: req.body.password}).then(()=> 
       res.json('User has been authenticated')).catch(err => res.status(401).json('Error: ' + err));        
   });
 
