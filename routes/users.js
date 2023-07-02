@@ -43,7 +43,7 @@ router.route('/delete').delete((req,res) =>{
 router.route('/login').post((req,res) =>{
  
     console.log("running this route");
-    console.log(req.body);
+    console.log(req.body.username);
     User.find({username: req.body.username, password: req.body.password}).then(users => 
         
       res.json(users.length>0)).catch(err => res.status(401).json('Error: ' + err));     
