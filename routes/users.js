@@ -11,17 +11,14 @@ let User = require('../models/user.model');
 
 //add new user
 router.route('/add').post((req,res) => {
-    console.log(req);
     console.log("\n\n");
-    console.log(req.body);
+    console.log(req.body.userName);
     console.log("\n\n");
-    console.log(req.body.username);
-    console.log("\n\n");
-    console.log(req.body.password);
+    console.log(req.body.userPassword);
 
-    const username = req.body.username;
-    const password = req.body.password;
-    const email_address = req.body.email_address;
+    const username = req.body.userName;
+    const password = req.body.userPassword;
+    const email_address = req.body.userEmail;
 
     const newUser = new User({username, password, email_address});
 
