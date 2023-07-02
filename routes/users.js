@@ -46,7 +46,8 @@ router.route('/delete').delete((req,res) =>{
 });
 //authenticate user
 router.route('/login').get((req,res) =>{
-
+ 
+    console.log("running this route");
     User.find({username: req.body.username, password: req.body.password}).then(()=> 
       res.json('User has been authenticated')).catch(err => res.status(401).json('Error: ' + err));        
   });
