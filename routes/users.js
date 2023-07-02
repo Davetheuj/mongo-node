@@ -11,44 +11,34 @@ let User = require('../models/user.model');
 
 //add new user
 router.route('/add').post((req,res) => {
-    console.log("\n\n");
-    console.log(req.body.userName);
-    console.log("\n\n");
-    console.log(req.body.userPassword);
+  console.log("Running Add Route");
+    const userName = req.body.userName;
+    const userPassword = req.body.userPassword;
+    const userEmail = req.body.userEmail;
 
-    const username = req.body.userName;
-    const password = req.body.userPassword;
-    const email_address = req.body.userEmail;
-
-    const newUser = new User({username, password, email_address});
+    const newUser = new User({userName, userPassword, userEmail});
 
 
-    newUser.save().then(() => res.json('User has been added')).catch(err => res.status(400).json('Error: ' + err));
+    newUser.save().then(() => res.json('true')).catch(err => res.status(400).json('false'));
     
 });
 
 //delete user
 router.route('/delete').delete((req,res) =>{
-
-  User.findOneAndDelete({username: req.body.username, password: req.body.password}).then(()=> 
-    res.json('User has been deleted')).catch(err => res.status(401).json('Error: ' + err));
+  console.log("Running Delete Route");
+  User.findOneAndDelete({userName: req.body.username, userPassword: req.body.password}).then(()=> 
+    res.json('true')).catch(err => res.status(401).json('false'));
     
     
   
 });
 //authenticate user
 router.route('/login').post((req,res) =>{
- 
-    console.log("running this route");
-    console.log(req.body.userName);
-
-    User.find({username: req.body.userName, password: req.body.userPassword}).then(users => 
+    console.log("Running Login Route");
+    User.find({userName: req.body.userName, userPassword: req.body.userPassword}).then(users => 
         
-      res.json(users.length>0)).catch(err => res.status(401).json('Error: ' + err));     
+      res.json(users.length>0)).catch(err => res.status(401).json('false'));     
              
   });
-
-
-//modify user
 
 module.exports = router;
