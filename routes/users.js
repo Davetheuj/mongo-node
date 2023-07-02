@@ -44,6 +44,7 @@ router.route('/login').post((req,res) =>{
  
     console.log("running this route");
     console.log(req.body.username);
+    console.log(req.body);
     User.find({username: req.body.username, password: req.body.password}).then(users => 
         
       res.json(users.length>0)).catch(err => res.status(401).json('Error: ' + err));     
