@@ -35,9 +35,10 @@ router.route('/delete').delete((req,res) =>{
 //authenticate user
 router.route('/login').post((req,res) =>{
     console.log("Running Login Route");
-    User.find({userName: req.body.userName, userPassword: req.body.userPassword}).then(users => 
+    User.findOne({userName: req.body.userName, userPassword: req.body.userPassword}).then(users => 
         
-      res.json(users.length>0)).catch(err => res.status(401).json('false'));     
+      res.json(users)).catch(err => res.status(401).json('false'));     
+      console.log(users.body);
              
   });
 
