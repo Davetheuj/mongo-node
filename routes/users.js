@@ -40,7 +40,7 @@ router.route('/delete').delete((req,res) =>{
   
 });
 //authenticate user
-router.route('/login').get((req,res) =>{
+router.route('/login').put((req,res) =>{
  
     console.log("running this route");
     console.log(req.body);
