@@ -7,12 +7,7 @@ let User = require('../models/user.model');
     
 // });
 
-//get one user
-router.route('/:id').get((req,res) => {
-    
-    User.find().then(users => res.json(users)).catch(err => res.status(401).json('Error: ' + err));
-    
-});
+
 
 //add new user
 router.route('/add').post((req,res) => {
