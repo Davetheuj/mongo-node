@@ -14,7 +14,10 @@ router.route('/add').post((req,res) => {
   console.log("Running Add Route");
 
   
-  User.findOne({userName: req.body.userName}).then(user => {console.log(user); if(user == null){ const userName = req.body.userName;
+  User.findOne({userName: req.body.userName}).then(user => 
+    {
+    if(user == null){ 
+    const userName = req.body.userName;
     const userPassword = req.body.userPassword;
     const userEmail = req.body.userEmail;
 
@@ -22,9 +25,14 @@ router.route('/add').post((req,res) => {
 
     
 
-    newUser.save().then(() => res.json('true'))}else{
-      res.json('false');
-    }}).catch(_err => res.status(400).json('false'));
+    newUser.save().then(() => res.json('true'))
+    }
+    else
+    {
+      res.json('taken');
+    }
+  }
+  ).catch(_err => res.status(400).json('false'));
 
 
     // const userName = req.body.userName;
