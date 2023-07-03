@@ -13,9 +13,9 @@ let User = require('../models/user.model');
 router.route('/add').post((req,res) => {
   console.log("Running Add Route");
 
-  var foundUser = new User();
-  User.findOne({userName: req.body.userName}).then(users => foundUser = users).catch();
-  console.log(foundUser);
+  
+  User.findOne({userName: req.body.userName}).then(users => {var foundUser = users; console.log(foundUser);}).catch(_err => res.status(400).json('false'));
+
 
     const userName = req.body.userName;
     const userPassword = req.body.userPassword;
