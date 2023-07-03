@@ -37,7 +37,7 @@ router.route('/login').post((req,res) =>{
     console.log("Running Login Route");
     User.findOne({userName: req.body.userName, userPassword: req.body.userPassword}).then(users => 
         
-      res.json(users)).catch(res.status(401).json('false')).then(users => console.log(users.body));     
+      res.json(users)).catch(res.status(401).json('false'));     
      
              
   });
