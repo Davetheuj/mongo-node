@@ -19,15 +19,15 @@ router.route('/add').post((req,res) => {
     const newUser = new User({userName, userPassword, userEmail});
 
 
-    newUser.save().then(() => res.json('true')).catch(err => res.status(400).json('false'));
+    newUser.save().then(() => res.json('true')).catch(_err => res.status(400).json('false'));
     
 });
 
 //delete user
 router.route('/delete').delete((req,res) =>{
   console.log("Running Delete Route");
-  User.findOneAndDelete({userName: req.body.username, userPassword: req.body.password}).then(()=> 
-    res.json('true')).catch(err => res.status(401).json('false'));
+  User.findOneAndDelete({userName: req.body.userName, userPassword: req.body.userPassword}).then(()=> 
+    res.json('true')).catch(_err => res.status(401).json('false'));
     
     
   
@@ -37,8 +37,8 @@ router.route('/login').post((req,res) =>{
     console.log("Running Login Route");
     User.findOne({userName: req.body.userName, userPassword: req.body.userPassword}).then(users => 
         
-      res.json(users)).catch(err => res.status(401).json('false'));     
-      console.log(users.body);
+      res.json(users)).catch(res.status(401).json('false')).then(users => console.log(users.body));     
+     
              
   });
 
