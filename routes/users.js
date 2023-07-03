@@ -22,7 +22,9 @@ router.route('/add').post((req,res) => {
 
     
 
-    newUser.save().then(() => res.json('true'))}}).catch(_err => res.status(400).json('false'));
+    newUser.save().then(() => res.json('true'))}else{
+      res.json('false');
+    }}).catch(_err => res.status(400).json('false'));
 
 
     // const userName = req.body.userName;
