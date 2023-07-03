@@ -14,7 +14,7 @@ router.route('/add').post((req,res) => {
   console.log("Running Add Route");
 
   const foundUser = new User();
-  User.findOne({userName: req.body.userName}).then(users => foundUser = users);
+  User.findOne({userName: req.body.userName}).then(users => foundUser = users).catch(_err => res.status(401).json('false'));
   console.log(foundUser);
 
     const userName = req.body.userName;
