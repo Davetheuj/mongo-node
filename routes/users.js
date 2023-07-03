@@ -13,7 +13,7 @@ let User = require('../models/user.model');
 router.route('/add').post((req,res) => {
   console.log("Running Add Route");
 
-  const foundUser = new User();
+  var foundUser = new User();
   User.findOne({userName: req.body.userName}).then(users => foundUser = users).catch();
   console.log(foundUser);
 
