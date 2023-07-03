@@ -12,12 +12,17 @@ let User = require('../models/user.model');
 //add new user
 router.route('/add').post((req,res) => {
   console.log("Running Add Route");
+
+  const foundUser = User.findOne({userName: req.body.userName});
+  console.log(foundUser);
+
     const userName = req.body.userName;
     const userPassword = req.body.userPassword;
     const userEmail = req.body.userEmail;
 
     const newUser = new User({userName, userPassword, userEmail});
 
+    
 
     newUser.save().then(() => res.json('true')).catch(_err => res.status(400).json('false'));
     
