@@ -7,7 +7,8 @@ const userSchema = new Schema(
         userName:{type: String, required: true, unique: true, trim: true},
         userPassword:{type: String, required: true},
         userEmail:{type: String, required: true},
-        userMMR:{type: String, required: true}
+        userMMR:{type: String, required: true},
+        pieces:{type : Object, required: true}
     },
     {
     timestamps: true,
