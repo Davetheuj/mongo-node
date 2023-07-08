@@ -8,7 +8,7 @@ const userSchema = new Schema(
         userPassword:{type: String, required: true},
         userEmail:{type: String, required: true},
         userMMR:{type: String, required: true},
-        pieces:{type : Object, required: true}
+        boardPresets:{type : Object, required: true}
     },
     {
     timestamps: true,
