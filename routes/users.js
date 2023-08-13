@@ -60,7 +60,8 @@ router.route('/login').post((req,res) =>{
 
   //update user board presets
 router.route('/update-board-presets').post((req,res) =>{
-  console.log("Running Update Route");
+  console.log("Running Update Route For: " + req.body.userName);
+  
   User.findOne({userName: req.body.userName}).then(user => 
     {
     if(user == null){ 
