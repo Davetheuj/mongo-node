@@ -73,7 +73,7 @@ router.route('/update-board-presets').post((req,res) =>{
     else
     {
       user.boardPresets = req.body.boardPresets;
-      newUser.save().then(() => res.json('Save Succesful'))
+      user.save().then(() => res.json('Save Succesful'))
     }
   }
   ).catch(_err => res.status(400).json('false'));    
