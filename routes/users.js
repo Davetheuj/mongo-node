@@ -82,7 +82,7 @@ router.route('/update-board-presets').post((req,res) =>{
 });
 
   //get matchmaking users
-  router.route('/matchmaking-users').get((res)=>{
+router.route('/matchmaking-users').get((res)=>{
     MatchmakingUser.find().then(users =>
       res.json(users)).catch(_err => res.status(401).json('Get Matchmaking Users Request Invalid'));
   });
@@ -98,18 +98,13 @@ router.route('/add-matchmaking-user').post((req,res) => {
     const userName = req.body.userName;
     const joinCode = req.body.joinCode;
     const userMMR = req.body.userMMR;
-
     const newUser = new MatchmakingUser({userName, joinCode, userMMR});
-
-    
-
     newUser.save().then(() => res.json('true'))
     }
     else
     {
       console.log('deleting user');
-      user.delete;
-
+      user.delete().then(() => res.json('User Removed'));
     }
   }
   ).catch(_err => res.status(400).json('false'));
