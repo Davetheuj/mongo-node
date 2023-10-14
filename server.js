@@ -10,7 +10,8 @@ require("dotenv").config();
 const port = process.env.PORT || 5000;
 
 global.matchmakingServer = require('./matchmakingServer');
-
+matchmakingServer.year = 1994;
+matchmakingServer.name = 'Dave';
 
 app.use(cors());
 app.use(express.json());
