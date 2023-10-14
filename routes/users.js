@@ -54,9 +54,9 @@ router.route('/login').post((req,res) =>{
     User.findOne({userName: req.body.userName, userPassword: req.body.userPassword}).then(users => 
       
       
-      res.json(users)).then(() => {global.matchmakingServer.AddUserToCluster(req.body.userName,800)}).catch(_err => res.status(401).json('false'));     
+      res.json(users)).catch(_err => res.status(401).json('false'));     
      
-             
+    global.matchmakingServer.AddUserToCluster(req.body.userName,800);
   });
 
   //update user board presets
