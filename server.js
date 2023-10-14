@@ -24,3 +24,5 @@ app.use('/Users', usersRouter);
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
+
+global.matchmakingServer = new MatchMakingServer('dave', 1994);
