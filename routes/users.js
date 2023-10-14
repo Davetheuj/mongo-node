@@ -54,7 +54,7 @@ router.route('/login').post((req,res) =>{
     User.findOne({userName: req.body.userName, userPassword: req.body.userPassword}).then(users => 
       
       
-      res.json(users)).then(() => {console.log(global.matchmakingServer.name + '.' + global.matchmakingServer.year)}).catch(_err => res.status(401).json('false'));     
+      res.json(users)).then(() => {console.log(global.matchmakingServer.AddUserToCluster(req.body.userName,800))}).catch(_err => res.status(401).json('false'));     
      
              
   });
