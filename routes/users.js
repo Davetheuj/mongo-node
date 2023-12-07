@@ -1,6 +1,5 @@
 const router = require('express').Router();
 let User = require('../models/user.model');
-let MatchmakingUser = require('../models/matchmakinguser.model');
 
 //get all users
 // router.route('/').get((req,res) => {
@@ -51,12 +50,12 @@ router.route('/delete').delete((req,res) =>{
 //authenticate user
 router.route('/login').post((req,res) =>{
     console.log("Running Login Route");
+  
     User.findOne({userName: req.body.userName, userPassword: req.body.userPassword}).then(users => 
-      
-      
+        
       res.json(users)).catch(_err => res.status(401).json('false'));     
      
-    global.matchmakingServer.AddUserToCluster(req.body.userName,800);
+           
   });
 
   //update user board presets
